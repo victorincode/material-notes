@@ -17,13 +17,13 @@
                 <input [type]="showingPassword ? 'text' : 'password'" formControlName="password" matInput>
                 <mat-icon matSuffix (click)="onShowPassword()">{{ showingPassword ? 'visibility' : 'visibility_off' }}
                 </mat-icon>
-                <mat-error *ngIf="password?.hasError('required')">Password is required!</mat-error>
+                <mat-error *ngIf="confirmedPassword?.invalid">{{ passwordErrorMessage }}</mat-error>
             </mat-form-field>
             <!-- Confirm Password -->
             <mat-form-field appearance="outline">
                 <mat-label>Confirm Password</mat-label>
-                <input [type]="showingPassword ? 'text' : 'password'" formControlName="confirmPassword" matInput>
-                <mat-error *ngIf="password?.hasError('required')">You must confirm your password!</mat-error>
+                <input [type]="showingPassword ? 'text' : 'password'" formControlName="confirmedPassword" matInput>
+                <mat-error *ngIf="confirmedPassword?.hasError('required')">You must confirm your password!</mat-error>
             </mat-form-field>
 
         </mat-card-content>

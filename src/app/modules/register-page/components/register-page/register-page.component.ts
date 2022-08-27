@@ -13,8 +13,8 @@ export class RegisterPageComponent implements OnInit {
   constructor(private readonly formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      confirmPassword: ['',[Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
+      confirmedPassword: ['',[Validators.required]],
     });
    }
   ngOnInit(): void {
@@ -28,6 +28,14 @@ export class RegisterPageComponent implements OnInit {
   }
   get password(){
     return this.registerForm.get("password");
+  }
+  get passwordErrorMessage(){
+    if(this.password?.hasError("required")) return "Password is required!";
+    if(this.password?.hasError("minlength")) return `Password must be at least ${this.passwordMinLength} characters!`; 
+    return "Password is not valid!";
+  }
+  get confirmedPassword(){
+    return this.registerForm.get("confirmedPassword");
   }
   onShowPassword(){
     this.showingPassword = !this.showingPassword;
