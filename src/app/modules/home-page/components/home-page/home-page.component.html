@@ -37,7 +37,15 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Item description:</mat-label>
-                    <textarea matInput formControlName="content" cols="30" rows="20"></textarea>
+                    <textarea 
+                        matInput
+                        #itemDescriptionRef 
+                        formControlName="content" cols="30" rows="20" 
+                        [maxlength]="maxDescriptionLength">
+                    </textarea>
+                    <mat-hint>
+                        {{itemDescription?.value.length}}/{{maxDescriptionLength}}
+                    </mat-hint>
                     <mat-error *ngIf="itemDescription?.hasError('required')">
                         Description is required!
                     </mat-error>

@@ -14,6 +14,7 @@ export class HomePageComponent implements OnInit {
 
   listData: ItemData[] = [];
   itemDataForm: FormGroup;
+  maxDescriptionLength: number = 256;
 
   constructor(
     private readonly itemDataService: ItemListDataService,
