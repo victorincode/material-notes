@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>
+    Reset Confirmation
+</h1>
+<mat-dialog-content>
+    Are you sure you want to delete all your data?
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button 
+        (click)="deleteAllData()" 
+        mat-flat-button
+        mat-dialog-close="true" 
+        color="warn"
+    >Delete</button>
+    <button mat-flat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

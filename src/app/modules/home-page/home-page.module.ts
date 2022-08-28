@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialDesignModule } from '../material-design/material-design.module';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { RouterModule, Routes } from '@angular/router';
+import { DeletionConfirmationComponent } from './components/deletion-confirmation/deletion-confirmation.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HomePageComponent
+    HomePageComponent,
+    DeletionConfirmationComponent
   ],
   imports: [
     CommonModule,

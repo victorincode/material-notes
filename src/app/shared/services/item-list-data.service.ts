@@ -6,16 +6,7 @@ import { ItemData } from '../interfaces/item-data';
   providedIn: 'root'
 })
 export class ItemListDataService {
-  private _listData: ItemData[] = [
-    {
-      title: "Test Data",
-      content: "Populate some content."
-    },
-    {
-      title: "Other Data",
-      content: "How does this look?"
-    },
-  ];
+  private _listData: ItemData[] = [];
   private listDataBehavior = new BehaviorSubject(this.listData);
   listData$ = this.listDataBehavior.asObservable();
   private previousItemList: ItemData[] = [];
@@ -42,6 +33,10 @@ export class ItemListDataService {
   }
   deleteItem(itemTitle: string){
     this.listData = this.listData.filter(item => item.title !== itemTitle); 
+  }
+  resetListData(){
+    this.listData = [];
+    if(localStorage.getItem("material-notes")) localStorage.removeItem("material-notes");
   }
 
 }

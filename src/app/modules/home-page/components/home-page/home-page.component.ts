@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ItemData } from 'src/app/shared/interfaces/item-data';
 import { ItemListDataService } from 'src/app/shared/services/item-list-data.service';
+import { DeletionConfirmationComponent } from '../deletion-confirmation/deletion-confirmation.component';
 
 @Component({
   selector: 'app-home-page',
@@ -15,7 +17,8 @@ export class HomePageComponent implements OnInit {
 
   constructor(
     private readonly itemDataService: ItemListDataService,
-    private readonly formBuilder: FormBuilder
+    private readonly formBuilder: FormBuilder,
+    private readonly dialogue: MatDialog,
   ) {
     this.itemDataForm = this.formBuilder.group({
       title: ['', [Validators.required]],
@@ -44,6 +47,7 @@ export class HomePageComponent implements OnInit {
   onClearForm(){
     this.itemDataForm.reset();
   }
-  onRevert() {
+  onResetAllItems(){
+    this.dialogue.open(DeletionConfirmationComponent);
   }
 }

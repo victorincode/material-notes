@@ -3,7 +3,7 @@
     <mat-card>
         <mat-toolbar color="primary">
             <p>Material-Notes</p>
-            <button mat-flat-button (click)="onClearForm()">
+            <button mat-flat-button color="accent" (click)="onClearForm()">
                 <mat-icon>add</mat-icon>
             </button>
         </mat-toolbar>
@@ -18,7 +18,7 @@
                 </mat-expansion-panel-header>
                 {{item.content}}
             </mat-expansion-panel>
-            <button mat-button color="primary" (click)="deleteItem(item.title)">
+            <button mat-button color="warn" (click)="deleteItem(item.title)">
                 <mat-icon>delete</mat-icon>
             </button>
         </div>
@@ -43,7 +43,8 @@
                     </mat-error>
                 </mat-form-field>
             </mat-card-content>
-            <mat-card-actions>
+            <mat-card-actions align="end">
+                <button type="button" [disabled]="listData.length < 1" mat-flat-button color="warn" (click)="onResetAllItems()">Reset</button>
                 <button type="submit" mat-flat-button color="primary">Save</button>
             </mat-card-actions>
         </mat-card>
