@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
 import { MaterialDesignModule } from '../material-design/material-design.module';
-import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    component: RegisterPageComponent
+    path: "",
+    component: HomePageComponent
   }
 ];
 
 @NgModule({
   declarations: [
-    RegisterPageComponent
+    HomePageComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MaterialDesignModule,
+    MaterialDesignModule
   ]
 })
-export class RegisterPageModule { }
+export class HomePageModule { }
